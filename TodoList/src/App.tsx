@@ -50,7 +50,7 @@ function App() {
     let todoListId2=v1()
 
     let [todoLists,setTodoLists]=useState<Array<TodolistType>>(   [
-        {id: todoListId1, title: "Want to", filter: "active"},
+        {id: todoListId1, title: "Want ", filter: "active"},
         {id: todoListId2, title: "Want to", filter: "active"},
     ])
     let [allTasks,setAllTasks]=useState({
@@ -70,6 +70,10 @@ function App() {
         ]
         }
     )
+    const  removeTodoList = (todoListID: string) => {
+        setTodoLists(todoLists.filter(tl => tl.id !== todoListID))
+        delete allTasks[todoListID]
+    }
 
     return (
         <div className="App">
@@ -94,6 +98,7 @@ function App() {
                             addTask={addTask}
                             changeTaskStatus={changeStatus}
                             filter={tl.filter}
+                            removeTodoList={removeTodoList}
                         />)
                 })
             }
