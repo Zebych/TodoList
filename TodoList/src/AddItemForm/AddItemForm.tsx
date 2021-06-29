@@ -35,6 +35,7 @@ export const AddItemForm: React.FC<AddItemFormType> = (props) => {
             />
             <button onClick={addTask}>+</button>
             {error && <div className="error-message">{error}</div>}
+            ----
         </div>
     )
 }
