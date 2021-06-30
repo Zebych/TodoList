@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a7e7c24-a999-404f-b8fa-26da268b7f5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TodoList/src/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoList/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TodoList/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/Todolist.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../it-incubator-todolist-ts-06" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="E:\incubator\TodoList\GitTodoList\TodoList\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -49,7 +51,7 @@
       <workItem from="1624373857502" duration="6000" />
       <workItem from="1624373934635" duration="20000" />
       <workItem from="1624384206222" duration="1376000" />
-      <workItem from="1624958365197" duration="12442000" />
+      <workItem from="1624958365197" duration="20191000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring add task">
       <created>1624960519583</created>
@@ -86,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624976578796</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="EditableSpan separate component">
+      <created>1624978757237</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624978757237</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +106,7 @@
     <MESSAGE value="disable git push node_modules &amp; idea&#10;disable" />
     <MESSAGE value="ignore" />
     <MESSAGE value="addItemForm separate component&#10;separate" />
-    <option name="LAST_COMMIT_MESSAGE" value="addItemForm separate component&#10;separate" />
+    <MESSAGE value="EditableSpan separate component" />
+    <option name="LAST_COMMIT_MESSAGE" value="EditableSpan separate component" />
   </component>
 </project>
