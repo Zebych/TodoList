@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a7e7c24-a999-404f-b8fa-26da268b7f5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/GitTodoList.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoList/src/AddItemForm/AddItemForm.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/src/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/AddItemForm/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoList/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TodoList/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +20,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1uJ8zsULMGXf9oDL33wCCmalYT8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../accordionGit" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="E:\incubator\TodoList\GitTodoList\TodoList\node_modules\typescript\lib" />
@@ -69,7 +66,8 @@
       <workItem from="1624373934635" duration="20000" />
       <workItem from="1624384206222" duration="1376000" />
       <workItem from="1624958365197" duration="21762000" />
-      <workItem from="1625557346441" duration="9366000" />
+      <workItem from="1625557346441" duration="10039000" />
+      <workItem from="1625567837609" duration="219000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring add task">
       <created>1624960519583</created>
@@ -127,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625040535409</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add material-ui">
+      <created>1625567151168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1625567151168</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add material-ui">
+      <created>1625567355231</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625567355231</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +155,7 @@
     <MESSAGE value="Merge branch 'main' of https://github.com/Zebych/TodoList&#10;&#10;# Conflicts:&#10;#&#9;TodoList/.idea/.gitignore" />
     <MESSAGE value="xz" />
     <MESSAGE value="pull" />
-    <option name="LAST_COMMIT_MESSAGE" value="pull" />
+    <MESSAGE value="add material-ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="add material-ui" />
   </component>
 </project>

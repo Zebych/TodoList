@@ -11,7 +11,7 @@ export type TaskType = {
     isDone: boolean
 }
 
-type PropsType = {
+ type TodolistPropsType = {
     id: string
     title: string
     tasks: Array<TaskType>
@@ -25,7 +25,7 @@ type PropsType = {
     changeTodoListTitle:(id:string,newTitle:string)=>void
 }
 
-export function Todolist(props: PropsType) {
+export function Todolist(props: TodolistPropsType) {
 
     const onAllClickHandler = () => props.changeFilter("all", props.id);
     const onActiveClickHandler = () => props.changeFilter("active", props.id);
