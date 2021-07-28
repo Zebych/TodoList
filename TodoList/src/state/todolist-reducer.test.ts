@@ -1,9 +1,9 @@
 import {v1} from "uuid";
 import {
-    AddTodolistAC, ChangeTodolistFilterAC,
+    addTodolistAC, changeTodolistFilterAC,
     ChangeTodolistFilterActionType,
-    ChangeTodolistTitleAC,
-    RemoveTodolistAC,
+    changeTodolistTitleAC,
+    removeTodolistAC,
     todoListsReducer
 } from "./todolist-reducer";
 import {FilterValuesType, TodolistType} from "../App";
@@ -18,7 +18,7 @@ test('correct todolist should be removed', () => {
     ]
 
     // const endState = todoListsReducer(startState, {type: 'REMOVE-TODOLIST', id: todolistId1})
-    const endState = todoListsReducer(startState, RemoveTodolistAC(todolistId1))
+    const endState = todoListsReducer(startState, removeTodolistAC(todolistId1))
 
     expect(endState.length).toBe(1)
     expect(endState[0].id).toBe(todolistId2)
@@ -43,11 +43,11 @@ test('correct todolist should be added', () => {
     //         title: newTodolistTitle
     //     })
     const endState = todoListsReducer(startState,
-        AddTodolistAC(newTodolistTitle))
+        addTodolistAC(newTodolistTitle))
 
     expect(endState.length).toBe(3)
-    expect(endState[2].title).toBe(newTodolistTitle)
-    expect(endState[2].filter).toBe('all')
+    expect(endState[0].title).toBe(newTodolistTitle)
+    expect(endState[0].filter).toBe('all')
 
 })
 
@@ -62,7 +62,7 @@ test('correct todolist should change its name', () => {
         {id: todolistId2, title: 'What to buy', filter: 'all'}
     ]
 
-    const action = ChangeTodolistTitleAC(todolistId2,newTodolistTitle)
+    const action = changeTodolistTitleAC(todolistId2,newTodolistTitle)
     //     {
     //     type: 'CHANGE-TODOLIST-TITLE' as const,
     //     id: todolistId2,
@@ -88,7 +88,7 @@ test('correct todolist should be changed', () => {
         {id: todolistId2, title: 'What to buy', filter: 'all'}
     ]
 
-    const action:ChangeTodolistFilterActionType = ChangeTodolistFilterAC(todolistId2,newFilter)
+    const action:ChangeTodolistFilterActionType = changeTodolistFilterAC(newFilter,todolistId2)
     //     {
     //     type: 'CHANGE-TODOLIST-FILTER',
     //     id: todolistId2,
