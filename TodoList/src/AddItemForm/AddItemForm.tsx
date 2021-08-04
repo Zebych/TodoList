@@ -5,7 +5,8 @@ import {PlaylistAdd} from "@material-ui/icons";
 type AddItemFormType = {
     addItem: (title: string) => void
 }
-export const AddItemForm: React.FC<AddItemFormType> = (props) => {
+export const AddItemForm: React.FC<AddItemFormType> = React.memo((props) => {
+    console.log('afdsfsd')
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
@@ -21,7 +22,10 @@ export const AddItemForm: React.FC<AddItemFormType> = (props) => {
         }
     }
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null);
+        if(error !== null){
+            setError(null);
+        }
+
         if (e.key === "Enter") {
             addTask();
         }
@@ -43,4 +47,4 @@ export const AddItemForm: React.FC<AddItemFormType> = (props) => {
 
         </div>
     )
-}
+})
