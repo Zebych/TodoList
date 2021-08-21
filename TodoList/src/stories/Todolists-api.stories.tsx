@@ -36,7 +36,6 @@ export const DeleteTodolist = () => {
         let todolistId = '83a3072b-8200-400a-bd84-c124668c8b8d'
         todolistsApi.deleteTodo(todolistId)
             .then((res) => {
-                debugger
                 setState(res.data);
             })
     }, [])

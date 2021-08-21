@@ -15,6 +15,7 @@ import {
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from './state/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
+import {CreateTasks, DeleteTasks, GetTasks, UpdateTasks} from "./stories/Tasks-api.stories";
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistType = {
@@ -86,6 +87,10 @@ function AppWithRedux() {
 
     return (
         <div className="App">
+            <GetTasks/>
+            <CreateTasks/>
+            <DeleteTasks/>
+            <UpdateTasks/>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
