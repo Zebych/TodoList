@@ -5,15 +5,16 @@ import {
     addTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC,
+    addTodolistTC,
     fetchTodolistsThunk,
     FilterValuesType,
     removeTodolistAC,
-    TodolistDomainType
+    TodolistDomainType, deleteTodolistTC
 } from "../../../features/todolists/todolists-reducer";
 import {addTaskTC, removeTaskTC, updateTaskStatusTC} from "../../../features/todolists/tasks-reducer";
 import {TaskStatuses} from "../../../api/todolists-api";
 import {Grid, Paper} from "@material-ui/core";
-import {AddItemForm} from "../../../components/addItemForm/AddItemForm";
+import {AddItemForm} from "../../../components/AddItemForm/AddItemForm";
 import {Todolist} from "../../../features/todolists/Todolist/Todolist";
 import {TasksStateType} from "../../../app/App";
 
@@ -45,8 +46,7 @@ export const TodolistsList: React.FC = (props) => {
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        const action = removeTodolistAC(id);
-        dispatch(action);
+        dispatch(deleteTodolistTC(id))
     }, []);
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
@@ -54,13 +54,12 @@ export const TodolistsList: React.FC = (props) => {
         dispatch(action);
     }, []);
 
-    const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title);
-        dispatch(action);
+    const addTodolist = useCallback(function(title: string) {
+        dispatch(addTodolistTC(title))
     }, [dispatch]);
     return <>
         <Grid container style={{padding: "20px"}}>
-            <AddItemForm addItem={addTodolist}/>
+            <AddItemForm addItem={addTodolist} />
         </Grid>
         <Grid container spacing={3}>
             {
@@ -70,6 +69,7 @@ export const TodolistsList: React.FC = (props) => {
                     return <Grid item key={tl.id}>
                         <Paper style={{padding: "10px"}}>
                             <Todolist
+                                entityStatus={tl.entityStatus}
                                 id={tl.id}
                                 title={tl.title}
                                 tasks={allTodolistTasks}
