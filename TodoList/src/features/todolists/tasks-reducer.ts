@@ -10,11 +10,12 @@ import {
     setAppStatusAC,
     SetAppStatusACType
 } from "../../app/app-reducer";
+import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 
 
 const initialState: TasksStateType = {}
 
-export const tasksReducer = (state: TasksStateType  = initialState, action: ActionsType): TasksStateType => {
+export const tasksReducer = (state: TasksStateType = initialState, action: ActionsType): TasksStateType => {
     switch (action.type) {
         case 'REMOVE-TASK':
             return {...state, [action.todolistId]: state[action.todolistId].filter(t => t.id != action.taskId)}
@@ -78,15 +79,17 @@ export const removeTaskTC = (todolistId: string, id: string) => (dispatch: Dispa
 export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
     todolistsAPI.createTask(todolistId, title).then((res) => {
-        res.data.resultCode === 0 ? dispatch(addTaskAC(res.data.data.item))
-            : dispatch(setAppErrorAC(res.data.messages[0]))
-    })
-        .catch((err)=>{
-            dispatch(setAppErrorAC(err.message))
-        })
-        .finally(()=>{
+        if(res.data.resultCode===0){
             dispatch(setAppStatusAC('succeeded'))
-        })
+            dispatch(addTaskAC(res.data.data.item))
+        }else{
+            handleServerAppError(dispatch,res.data)
+        }
+      /*  res.data.resultCode === 0 ? dispatch(addTaskAC(res.data.data.item))
+            :handleServerNetworkError(dispatch,res.data.messages[0])
+            // : dispatch(setAppErrorAC(res.data.messages[0]))*/
+    })
+        .catch((err) => handleServerNetworkError(dispatch,err.message))
 }
 
 export const updateTaskStatusTC = (todolistId: string, taskId: string, status: TaskStatuses) =>

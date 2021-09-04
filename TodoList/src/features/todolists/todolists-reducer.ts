@@ -7,6 +7,8 @@ import {
     setAppStatusAC,
     SetAppStatusACType
 } from "../../app/app-reducer";
+import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
+import {addTaskAC} from "./tasks-reducer";
 
 const initialState: Array<TodolistDomainType> = []
 
@@ -54,12 +56,18 @@ export const fetchTodolistsThunk = () => (dispatch: Dispatch<ActionsType>) => {
 export const addTodolistTC = (title: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
     todolistsAPI.createTodolist(title).then((res) => {
-        dispatch(setAppStatusAC('succeeded'))
+        if(res.data.resultCode===0){
+            dispatch(setAppStatusAC('succeeded'))
+            dispatch(addTodolistAC(res.data.data.item))
+        }else{
+            handleServerAppError(dispatch,res.data)
+        }
+      /*  dispatch(setAppStatusAC('succeeded'))
         res.data.resultCode === 0 ? dispatch(addTodolistAC(res.data.data.item))
-            : dispatch(setAppErrorAC(res.data.messages[0])) && dispatch(setAppStatusAC('failed'))
-
-
+            :handleServerNetworkError(dispatch,res.data.messages[0])
+            // : dispatch(setAppErrorAC(res.data.messages[0])) && dispatch(setAppStatusAC('failed'))*/
     })
+        .catch((err) => handleServerNetworkError(dispatch,err.message))
 }
 export const deleteTodolistTC = (id: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
@@ -70,6 +78,7 @@ export const deleteTodolistTC = (id: string) => (dispatch: Dispatch<ActionsType>
             : dispatch(setAppErrorAC(res.data.messages[0])) && dispatch(setAppStatusAC('failed'))
 
     })
+        .catch((err) => handleServerNetworkError(dispatch, err.message))
 }
 
 //types
