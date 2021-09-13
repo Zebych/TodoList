@@ -17,14 +17,19 @@ import {Grid, Paper} from "@material-ui/core";
 import {AddItemForm} from "../../../components/AddItemForm/AddItemForm";
 import {Todolist} from "../../../features/todolists/Todolist/Todolist";
 import {TasksStateType} from "../../../app/App";
+import {Redirect} from "react-router-dom";
 
 export const TodolistsList: React.FC = (props) => {
 
     const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if(!isLoggedIn){
+            return
+        }
         dispatch(fetchTodolistsThunk())
     }, [])
 
@@ -54,12 +59,16 @@ export const TodolistsList: React.FC = (props) => {
         dispatch(action);
     }, []);
 
-    const addTodolist = useCallback(function(title: string) {
+    const addTodolist = useCallback(function (title: string) {
         dispatch(addTodolistTC(title))
     }, [dispatch]);
+
+    if (!isLoggedIn) {
+        return <Redirect to={'login'}/>
+    }
     return <>
         <Grid container style={{padding: "20px"}}>
-            <AddItemForm addItem={addTodolist} />
+            <AddItemForm addItem={addTodolist}/>
         </Grid>
         <Grid container spacing={3}>
             {
