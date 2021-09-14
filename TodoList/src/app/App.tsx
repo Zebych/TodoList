@@ -26,8 +26,8 @@ function App() {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(initializeAppTC())
-    })
-    const logoutHandler=()=>{
+    },[])
+    const logoutHandler = () => {
         dispatch(logoutTC())
     }
     if (!isInitialized) {
