@@ -1,5 +1,10 @@
 import {TasksStateType} from '../../app/App';
-import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsACType} from './todolists-reducer';
+import {
+    AddTodolistActionType,
+    ClearDataActionType,
+    RemoveTodolistActionType,
+    SetTodolistsACType
+} from './todolists-reducer';
 import {TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
 import {Dispatch} from "redux";
 import {AppRootStateType} from "../../app/store";
@@ -42,6 +47,8 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
         }
         case 'SET-TASKS':
             return {...state, [action.todolistId]: action.tasks}
+        case "CLEAR_DATA":
+            return {}
         default:
             return state;
     }
@@ -120,6 +127,7 @@ export const updateTaskStatusTC = (todolistId: string, taskId: string, status: T
     }
 //types
 type ActionsType =
+    | ClearDataActionType
     | SetAppErrorACType
     | SetAppStatusACType
     | RemoveTodolistActionType
