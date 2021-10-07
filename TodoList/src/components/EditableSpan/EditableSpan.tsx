@@ -18,6 +18,6 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
     }
 
     return editMode
-        ?    <TextField value={title} onChange={changeTitle} />
+        ? <TextField value={title} onChange={changeTitle}/>
         : <span onDoubleClick={activateEditMode}>{props.value}</span>
 });

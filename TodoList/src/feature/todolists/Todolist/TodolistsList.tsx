@@ -2,13 +2,11 @@ import React, {useCallback, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../app/store";
 import {
-    addTodolistAC,
     changeTodolistFilterAC,
     changeTodolistTitleAC,
     addTodolistTC,
     fetchTodolistsThunk,
     FilterValuesType,
-    removeTodolistAC,
     TodolistDomainType, deleteTodolistTC
 } from "../../../features/todolists/todolists-reducer";
 import {addTaskTC, removeTaskTC, updateTaskStatusTC} from "../../../features/todolists/tasks-reducer";
@@ -27,7 +25,7 @@ export const TodolistsList: React.FC = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(!isLoggedIn){
+        if (!isLoggedIn) {
             return
         }
         dispatch(fetchTodolistsThunk())

@@ -1,22 +1,19 @@
 import {TasksStateType} from '../../app/App';
+import {TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
+import {Dispatch} from "redux";
+import {AppRootStateType} from "../../app/store";
+import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {
     AddTodolistActionType,
     ClearDataActionType,
     RemoveTodolistActionType,
     SetTodolistsACType
 } from './todolists-reducer';
-import {TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
-import {Dispatch} from "redux";
-import {AppRootStateType} from "../../app/store";
 import {
-    RequestStatusType,
-    setAppErrorAC,
     SetAppErrorACType,
     setAppStatusAC,
     SetAppStatusACType
 } from "../../app/app-reducer";
-import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
-
 
 const initialState: TasksStateType = {}
 
@@ -86,17 +83,14 @@ export const removeTaskTC = (todolistId: string, id: string) => (dispatch: Dispa
 export const addTaskTC = (todolistId: string, title: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
     todolistsAPI.createTask(todolistId, title).then((res) => {
-        if(res.data.resultCode===0){
+        if (res.data.resultCode === 0) {
             dispatch(setAppStatusAC('succeeded'))
             dispatch(addTaskAC(res.data.data.item))
-        }else{
-            handleServerAppError(dispatch,res.data)
+        } else {
+            handleServerAppError(dispatch, res.data)
         }
-      /*  res.data.resultCode === 0 ? dispatch(addTaskAC(res.data.data.item))
-            :handleServerNetworkError(dispatch,res.data.messages[0])
-            // : dispatch(setAppErrorAC(res.data.messages[0]))*/
     })
-        .catch((err) => handleServerNetworkError(dispatch,err.message))
+        .catch((err) => handleServerNetworkError(dispatch, err.message))
 }
 
 export const updateTaskStatusTC = (todolistId: string, taskId: string, status: TaskStatuses) =>

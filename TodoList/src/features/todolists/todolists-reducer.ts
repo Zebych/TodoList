@@ -70,10 +70,6 @@ export const addTodolistTC = (title: string) => (dispatch: Dispatch<ActionsType>
         } else {
             handleServerAppError(dispatch, res.data)
         }
-        /*  dispatch(setAppStatusAC('succeeded'))
-          res.data.resultCode === 0 ? dispatch(addTodolistAC(res.data.data.item))
-              :handleServerNetworkError(dispatch,res.data.messages[0])
-              // : dispatch(setAppErrorAC(res.data.messages[0])) && dispatch(setAppStatusAC('failed'))*/
     })
         .catch((err) => handleServerNetworkError(dispatch, err.message))
 }
