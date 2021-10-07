@@ -4,8 +4,8 @@ import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
 import {Button, IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import {Task} from './Task/Task'
-import {TaskStatuses, TaskType, TodolistType} from '../../../api/todolists-api'
-import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
+import {TaskStatuses, TaskType} from '../../../api/todolists-api'
+import {FilterValuesType} from '../todolists-reducer'
 import {fetchTasksTC} from "../tasks-reducer";
 import {useDispatch} from "react-redux";
 import {RequestStatusType} from "../../../app/app-reducer";

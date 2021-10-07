@@ -26,7 +26,7 @@ function App() {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(initializeAppTC())
-    },[])
+    }, [])
     const logoutHandler = () => {
         dispatch(logoutTC())
     }

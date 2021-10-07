@@ -1,13 +1,13 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import { IconButton, TextField} from '@material-ui/core';
+import {IconButton, TextField} from '@material-ui/core';
 import {AddBox} from '@material-ui/icons';
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
-    disabled?:boolean
+    disabled?: boolean
 }
 
-export const AddItemForm = React.memo(function(props: AddItemFormPropsType) {
+export const AddItemForm = React.memo(function (props: AddItemFormPropsType) {
 
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
@@ -29,7 +29,7 @@ export const AddItemForm = React.memo(function(props: AddItemFormPropsType) {
         if (error !== null) {
             setError(null);
         }
-        if (e.charCode === 13) {
+        if (e.key === 'Enter') {
             addItem();
         }
     }
@@ -45,7 +45,7 @@ export const AddItemForm = React.memo(function(props: AddItemFormPropsType) {
                    disabled={props.disabled}
         />
         <IconButton color="primary" onClick={addItem} disabled={props.disabled}>
-            <AddBox />
+            <AddBox/>
         </IconButton>
     </div>
 })

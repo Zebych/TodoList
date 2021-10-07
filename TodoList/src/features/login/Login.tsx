@@ -3,8 +3,7 @@ import {Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField
 import {useFormik} from "formik";
 import {loginTC} from "./ayth-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {TodolistsList} from "../../feature/todolists/Todolist/TodolistsList";
-import {Redirect, Route} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {AppRootStateType} from "../../app/store";
 
 type FormikErrorType = {
@@ -15,7 +14,7 @@ type FormikErrorType = {
 
 export const Login = () => {
     const dispatch = useDispatch()
-    const isLoggedIn = useSelector<AppRootStateType,boolean>(state => state.auth.isLoggedIn)
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const formik = useFormik({
         initialValues: {
             email: '',

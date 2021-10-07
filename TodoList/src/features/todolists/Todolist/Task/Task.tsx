@@ -28,7 +28,7 @@ export const Task = React.memo((props: TaskPropsType) => {
         />
 
         <EditableSpan value={props.task.title}/>
-        <IconButton onClick={onClickHandler} >
+        <IconButton onClick={onClickHandler}>
             <Delete/>
         </IconButton>
     </div>
