@@ -1,6 +1,6 @@
 {
   "homepage": "https://zebych.github.io/TodoList/",
-  "name": "todolist-ts",
+  "name": "TodoList",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
