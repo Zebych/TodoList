@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from "./store";
 import {initializeAppTC, RequestStatusType} from "./app-reducer";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
 import {Login} from "../features/login/Login";
 import {logoutTC} from "../features/login/ayth-reducer";
 
@@ -37,7 +37,7 @@ function App() {
         </div>
     }
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <AppBar position="static">
                     {status === 'loading' && <LinearProgress/>}
@@ -63,7 +63,7 @@ function App() {
                 </Container>
                 <ErrorSnackbar/>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
